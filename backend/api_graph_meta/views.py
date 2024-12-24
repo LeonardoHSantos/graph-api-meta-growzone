@@ -1,5 +1,11 @@
+import os
 from django.shortcuts import render, redirect
 from django.http.response import JsonResponse
+
+def wss_meta(request):
+    return JsonResponse({
+        "token": os.getenv("WSS_META_TOKEN")
+    })
 
 def authorize(request):
     if request.method == "POST":
